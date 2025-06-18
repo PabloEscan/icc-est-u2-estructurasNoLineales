@@ -67,4 +67,22 @@ public class BinaryTree {
             System.out.print(node.getNum() + ", ");
         }
     }
+
+    public boolean findeValue(int valor){
+        return findeValueRec(root, valor);
+    }    
+    
+    public boolean findeValueRec(Node node, int valor){
+        if (node == null){
+            return false;
+        }
+        if(node.getNum() == valor){
+            return true;
+        }
+        if( node.getNum() < valor){
+            return findeValueRec(node.getRight(), valor);
+        }
+
+        return findeValueRec(node.getLeft(), valor);
+    }
 }
